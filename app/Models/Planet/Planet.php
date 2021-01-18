@@ -9,8 +9,8 @@ class Planet extends Model
 {
     use HasFactory;
     
-    private $width = 10;
-    private $height = 10;
+    private $width = 200;
+    private $height = 200;
     
     public function getWidthAttribute(): int {
         return $this->width;
