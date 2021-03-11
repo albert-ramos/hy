@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::group(
+    [           
+        'namespace' => 'External',
+        'prefix' => '10',
+    ], function(){
+
+        Route::get('ping', function(){
+            return response('pong');
+        })->name('api:10:ping');
+
+        Route::post('reset', [ResetController::class, 'reset'])->name('api:10:reset');
+        Route::post('init', [InitController::class, 'input'])->name('api:10:init');
+        Route::post('command', [CommandController::class, 'input'])->name('api:10:command');
+
 });
+

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\External;
 use App\Http\Responses\JSONResponse;
 use App\Http\Controllers\Controller;
 use App\Services\Reset\ResetService;
-use App\Http\Requests\InitRequest;
+use Illuminate\Http\Request;
 
 class ResetController extends Controller
 {
@@ -15,7 +15,7 @@ class ResetController extends Controller
         $this->resetService = $resetService;
     }
  
-    public function reset(InitRequest $request) {
+    public function reset(Request $request) {
         return JSONResponse::send(
             [
                 'output' => $this->resetService->reset()->getOutput()

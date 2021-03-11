@@ -24,7 +24,7 @@ class CommandInputRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'commands' => 'required'
         ];
     }
 }

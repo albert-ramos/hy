@@ -24,7 +24,8 @@ class InitRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'coordinates' => 'required',
+            'direction' => 'required'
         ];
     }
 }
